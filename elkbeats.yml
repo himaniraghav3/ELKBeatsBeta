@@ -1,0 +1,23 @@
+---
+  - hosts: elasticsearch
+    become: yes
+    roles:
+      - elasticsearch
+
+  - hosts: logstash
+    become: yes
+    roles:
+      - logstash
+
+  - hosts: kibana
+    become: yes
+    roles:
+      - kibana
+
+  - hosts: elk
+    become: yes
+    roles:
+      - elasticsearch
+      - logstash
+      - kibana
+      

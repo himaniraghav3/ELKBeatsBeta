@@ -1,0 +1,45 @@
+---
+  - hosts: filebeat
+
+    become: true
+
+    roles:
+      - role: filebeat
+
+    vars: 
+      beat_version: "7.14.1"
+      beat_package_version: "7.x"
+
+  - hosts: metricbeat
+
+    become: true
+
+    roles:
+      - role: metricbeat
+
+    vars:
+      beat_version: "7.14.1"
+      beat_package_version: "8.x"
+
+  - hosts: heartbeat
+
+    become: true
+
+    roles:
+      - role: heartbeat
+
+    vars:
+      beat_version: "7.17.0"
+      beat_package_version: "7.x"
+
+  - hosts: packetbeat
+
+    become: true
+
+    roles:
+      - role: packetbeat
+
+    vars:
+      beat_version: "7.12.1"
+      beat_package_version: "7.x"
+      

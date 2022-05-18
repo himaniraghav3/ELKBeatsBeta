@@ -1,0 +1,18 @@
+---
+# tasks file for heartbeat
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- include_tasks: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+  
+- name: Heartbeat- Install heartbeat.
+  package:
+    name: "{{heartbeat_package}}={{beat_version}}"
+    state: "{{heartbeat_package_state}}"
+
+- name: Heartbeat- Start heartbeat.
+  service:
+    name: heartbeat-elastic
+    state: "{{ heartbeat_service_state }}"
+    enabled: "{{ heartbeat_service_enabled }}"

@@ -1,0 +1,11 @@
+---
+# vars packet for packetbeat
+elastic_repo_key: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+elastic_repo_path: "deb https://artifacts.elastic.co/packages/{{beat_package_version}}/apt stable main"
+elastic_repo_version: "elastic-{{beat_package_version}}"
+
+packetbeat_package: packetbeat
+packetbeat_package_state: present
+
+packetbeat_service_state: started
+packetbeat_service_enabled: true

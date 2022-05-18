@@ -1,0 +1,11 @@
+---
+# vars file for heartbeat
+elastic_repo_key: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+elastic_repo_path: "deb https://artifacts.elastic.co/packages/{{beat_package_version}}/apt stable main"
+elastic_repo_version: "elastic-{{beat_package_version}}"
+
+heartbeat_package: heartbeat-elastic
+heartbeat_package_state: present
+
+heartbeat_service_state: started
+heartbeat_service_enabled: true

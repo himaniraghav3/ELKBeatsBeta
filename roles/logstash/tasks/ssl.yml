@@ -1,0 +1,7 @@
+---
+- name: Ensure Logstash SSL key pair directory exists.
+  file:
+    path: "{{ logstash_ssl_dir }}"
+    state: directory
+    mode: 0755
+  when: logstash_ssl_key_file | length > 0

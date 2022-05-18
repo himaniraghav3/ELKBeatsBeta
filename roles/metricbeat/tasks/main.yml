@@ -1,0 +1,19 @@
+---
+# tasks file for metricbeat
+
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- include_tasks: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+  
+- name: Metricbeat- Install metricbeat.
+  package:
+    name: "{{metricbeat_package}}={{beat_version}}"
+    state: "{{metricbeat_package_state}}"
+
+- name: Metricbeat- Start metricbeat.
+  service:
+    name: metricbeat
+    state: "{{ metricbeat_service_state }}"
+    enabled: "{{ metricbeat_service_enabled }}"

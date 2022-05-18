@@ -1,0 +1,14 @@
+[elasticsearch]
+<hostname> ansible_host=<IP Address> ansible_user=<username>
+
+[logstash]
+<hostname> ansible_host=<IP Address> ansible_user=<username>
+
+[kibana]
+<hostname> ansible_host=<IP Address> ansible_user=<username>
+
+[elk]
+<hostname> ansible_host=<IP Address> ansible_user=<username>
+
+[elkbeats]
+<hostname> ansible_host=<IP Address> ansible_user=<username>

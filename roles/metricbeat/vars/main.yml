@@ -1,0 +1,13 @@
+---
+# vars file for metricbeat
+elastic_repo_key: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+elastic_repo_path: "deb https://artifacts.elastic.co/packages/8.x/apt stable main"
+elastic_repo_version: "elastic-{{beat_package_version}}"
+
+metricbeat_package: metricbeat
+metricbeat_package_state: present
+
+beat_version: 8.0.0
+
+metricbeat_service_state: started
+metricbeat_service_enabled: true

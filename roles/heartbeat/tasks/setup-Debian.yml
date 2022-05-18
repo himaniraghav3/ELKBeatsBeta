@@ -1,0 +1,21 @@
+---
+- name: APT- Add elastic.co key
+  apt_key: 
+    url: "{{elastic_repo_key}}"
+    state: present
+  
+- name: APT- Install apt-transport-https
+  apt: 
+    pkg: apt-transport-https
+  
+- name: APT- Add elastic.co repository
+  apt_repository: 
+    repo: "{{elastic_repo_path}}"
+    state: present
+    filename: "{{elastic_repo_version}}"
+    update_cache: yes
+
+- name: Update APT 
+  become: true
+  apt: 
+    update_cache: yes

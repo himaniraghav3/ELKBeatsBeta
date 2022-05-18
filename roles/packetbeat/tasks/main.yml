@@ -1,0 +1,18 @@
+---
+# tasks file for packetbeat
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- include_tasks: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+  
+- name: Packetbeat- Install packetbeat.
+  package:
+    name: "{{packetbeat_package}}={{beat_version}}"
+    state: "{{packetbeat_package_state}}"
+
+- name: Packetbeat- Start packetbeat.
+  service:
+    name: packetbeat
+    state: "{{ packetbeat_service_state }}"
+    enabled: "{{ packetbeat_service_enabled }}"
